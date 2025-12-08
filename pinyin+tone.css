@@ -1,13 +1,9 @@
 /* ============================
    Fonts
    ============================ */
-.hachi-maru-pop-regular {
-  font-family: "Hachi Maru Pop", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
+
 /* ============================
-   Hero
+   nav
    ============================ */
 header {
   min-height: 100vh;              /* full viewport height */
@@ -19,14 +15,12 @@ header {
   text-align: center;
 }
 /* ============================
-   Words
+   main
    ============================ */
-h1 {
-  font-family: "Hachi Maru Pop", cursive;
-  font-weight: 400;
-  font-size: 4rem;
-  line-height: 1.2;
-  padding
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
 
@@ -57,7 +51,7 @@ button {
   font-weight: 600;
   background: #ffffff;
   border: none;
-  padding: 1.5em 5em;
+  padding: 1.5em 3em;
   margin: 0.5em;
 
   /* Retro stacked shadow */

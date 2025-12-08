@@ -7,31 +7,49 @@
   font-style: normal;
 }
 /* ============================
-   Hero
+   Hero style
    ============================ */
 header {
-  min-height: 100vh;              /* full viewport height */
+  min-height: 100vh;              
   display: flex;
   flex-direction: column;
-  justify-content: center;        /* center content vertically */
-  align-items: center;            /* center horizontally */
+  justify-content: center;        
+  align-items: center;            
   padding: 2rem 1rem;
   text-align: center;
 }
+
 /* ============================
-   Words
+   fun h1 styling
    ============================ */
-h1 {
+#hero-title {
   font-family: "Hachi Maru Pop", cursive;
   font-weight: 400;
-  font-size: 4rem;
+  font-size: 4rem;        
   line-height: 1.2;
-  padding
+  color: #333;
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
+
+#hero-title .char {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+              text-shadow 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#hero-title .char:hover {
+  transform: translateY(-20px);
+  text-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================
+   boby basic
+   ============================ */
+
   body {
-  background-color: #81D8D0 ; /* Tiffany Blue */
+  background-color: #81D8D0 ; 
   margin: 0;
   padding: 0;
-  color: #333; /* keep text readable */
+  color: #333; 
   font-family: sans-serif;
 }
