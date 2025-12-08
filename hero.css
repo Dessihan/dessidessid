@@ -53,3 +53,281 @@ header {
   color: #333; 
   font-family: sans-serif;
 }
+
+/* ============================
+   fun subhead
+   ============================ */
+/* ============================
+   Animated tagline: "A Fun Way to Learn"
+   ============================ */
+
+.tagline {
+  position: relative;
+  /* sizing based on your font-size, feels like a long word */
+  width: 20em;
+  height: 1.5em;
+  font-size: 2rem;          /* you can tweak this */
+  font-family: sans-serif;
+  margin: 1.5rem auto 0;      /* center under title */
+}
+
+/* Base style for the three stacked lines */
+.tagline div {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+/* Top half text that slides up */
+.tagline .upper {
+  top: 0;
+  height: 40%;
+  color: #ffffff;             
+  overflow: hidden;
+  z-index: 3;
+  animation: moveUp 1.5s ease-in-out 1;
+  background-color: #81D8D0;
+}
+/* Inside message (shows on hover) */
+.tagline .inside {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  text-align: center;
+  z-index: 2;
+  font-size: 1rem;
+  color: #dc143c;
+  opacity: 0; 
+  animation: insideFlash 1.5s ease-in-out 1 forwards;
+}
+/* Bottom text that slides down */
+.tagline .lower {
+  bottom: 0;
+  height: 100%;
+  color: #ffffff;  
+  background: linear-gradient(180deg, #81D8D0 40%, #fff 40%);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;         
+  z-index: 1;
+  animation: moveDown 1.5s ease-in-out 1;
+}
+
+
+/* Keep the upper/lower animation keyframes (letter motion) */
+@keyframes moveUp {
+  0%, 100% {
+    top: 0;
+  }
+
+  50%, 70% {
+    top: -20px;
+  }
+}
+
+@keyframes moveDown {
+  0%, 100% {
+    top: 0;
+  }
+
+  50%, 70% {
+    top: 30px;
+  }
+}
+@keyframes insideFlash {
+  0% {
+    opacity: 1;     /* visible at the start */
+  }
+  70% {
+    opacity: 1;     /* stay visible while upper/lower are moving */
+  }
+  100% {
+    opacity: 0;     /* disappear and stay hidden after animation */
+  }
+}
+
+
+/* Optional: smaller tweaks on very small screens */
+@media (max-width: 424px) {
+  .tagline {
+    font-size: 2rem;
+  }
+
+  .tagline .inside {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .tagline {
+    font-size: 1.7rem;
+  }
+
+  .tagline .inside {
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================
+  fun nav
+   ============================ */
+/* Timing variable reused from example */
+:root {
+  --bubbleTiming: cubic-bezier(0.5, 0.15, 0.25, 1.75);
+}
+
+/* Position the nav bubble under your hero text */
+.nav-bubble {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.bubble {
+  list-style: none;
+  padding: 0 6rem;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 6rem;                      /* wide space between bubbles */
+}
+
+nav li {
+  margin: 0;
+}
+
+/* Style the list inside the bubble */
+.nav-bubble ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-bubble a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #0A3D62; /* your dark blue */
+}
+
+/* The bubble itself (adapted from the original .bubble input) */
+.nav-bubble .bubble,
+.nav-bubble .bubble::before,
+.nav-bubble .bubble::after {
+  transition-duration: 0.2s;
+  transition-timing-function: var(--bubbleTiming);
+}
+
+.nav-bubble .bubble,
+.nav-bubble .bubble::after {
+  border-radius: 50%;
+}
+
+.nav-bubble .bubble {
+  /* background + shiny bubble effect */
+  background-image:
+    radial-gradient(8% 8% at 22% 28%, hsl(0,0%,100%) 45%, hsla(0,0%,100%,0) 50%),
+    radial-gradient(8% 8% at 23% 27%, hsl(0,0%,100%) 45%, hsla(0,0%,100%,0) 50%),
+    radial-gradient(8% 8% at 24% 26%, hsl(0,0%,100%) 45%, hsla(0,0%,100%,0) 50%),
+    radial-gradient(8% 8% at 25% 25%, hsl(0,0%,100%) 45%, hsla(0,0%,100%,0) 50%),
+    radial-gradient(8% 8% at 26% 24%, hsl(0,0%,100%) 45%, hsla(0,0%,100%,0) 50%),
+    radial-gradient(8% 8% at 27% 23%, hsl(0,0%,100%) 45%, hsla(0,0%,100%,0) 50%),
+    radial-gradient(8% 8% at 28% 22%, hsl(0,0%,100%) 45%, hsla(0,0%,100%,0) 50%);
+  box-shadow:
+    0 -0.06em 0.1em hsl(0,90%,100%) inset,
+    0 -0.15em 0.4em hsl(193, 90%, 45%) inset,
+    0 0.05em 0.05em hsl(193, 90%, 45%) inset,
+    0.05em 0 0.1em hsl(0,90%,100%) inset,
+    -0.05em 0 0.1em hsl(0,90%,100%) inset,
+    0 0.1em 0.4em hsl(193, 90%, 60%) inset;
+
+  cursor: pointer;
+  position: relative;
+  padding: 3em 2.5em;   /* space around the links */
+  transform-style: preserve-3d;
+  transition-property: box-shadow, transform, width, height;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+}
+
+/* Inner glow ring behind the bubble */
+.nav-bubble .bubble::before,
+.nav-bubble .bubble::after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.nav-bubble .bubble::before {
+  border-radius: 0.75em;
+  filter: drop-shadow(0.6em 0.6em 4px hsla(0,0%,0%,0.2));
+  top: 50%;
+  left: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  transform: translate3d(-50%, -50%, -1px);
+  z-index: -1;
+}
+
+/* Shadow under the bubble */
+.nav-bubble .bubble::after {
+  background: radial-gradient(
+    100% 100% at center,
+    hsla(0,0%,0%,0) 35%,
+    hsla(0,0%,0%,0.2) 48%,
+    hsla(0,0%,0%,0) 50%
+  );
+  filter: blur(4px);
+  top: 0.6em;
+  left: 0.6em;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0,0,-1px);
+  z-index: -2;
+}
+
+/* Float animation (like original label float) */
+.nav-bubble .bubble {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Scale up slightly on hover */
+.nav-bubble .bubble:hover {
+  transform: scale(1.1);
+}
+
+/* Squish into an oval when actively pressed/held */
+.nav-bubble .bubble:active {
+  width: 3.6em;   /* squish like example */
+  height: 2.4em;
+}
+
+/* Adjust pseudo-elements when active */
+.nav-bubble .bubble:hover::before {
+  filter: drop-shadow(0.75em 0.75em 4px hsla(0,0%,0%,0.2));
+}
+
+.nav-bubble .bubble:hover::after {
+  transform: translate3d(0.15em, 0.15em, -1px);
+}
+
+/* Float animation, same as example */
+@keyframes float {
+  from, to {
+    transform: translate(0, 3%);
+  }
+  25% {
+    transform: translate(-3%, 0);
+  }
+  50% {
+    transform: translate(0, -3%);
+  }
+  75% {
+    transform: translate(3%, 0);
+  }
+}
