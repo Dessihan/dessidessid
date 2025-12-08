@@ -336,3 +336,145 @@ header {
     transform: translate(3%, 0);
   }
 }
+
+
+/* ============================
+   nav (off-screen drawer)
+   ============================ */
+
+/* When nav is open, prevent body scrolling */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* Slide the main content slightly when nav opens */
+.page-wrapper {
+  transition: transform 0.4s cubic-bezier(0.5, 0.15, 0.25, 1.0);
+}
+
+body.nav-open .page-wrapper {
+  transform: translateX(220px);
+}
+
+/* Drawer nav */
+.site-nav {
+  background-color: #5ABDB3;       /* your dark blue */
+  color: #ffffff;
+  width: 220px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 5rem 1.5rem 2rem;
+  box-sizing: border-box;
+
+  transform: translateX(-240px);   /* hidden off screen */
+  transition: transform 0.4s cubic-bezier(0.5, 0.15, 0.25, 1.0);
+  z-index: 20;
+}
+
+body.nav-open .site-nav {
+  transform: translateX(0);
+}
+
+/* Nav list styling */
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  text-align: right;
+  display: block;
+  padding: 0.4rem 0;
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  color: #333;  /* use your Tiffany blue as hover accent */
+}
+
+/* Hamburger button */
+.openNav {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  background-color: #5ABDB3;     /* dark blue bubble */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 30;
+  transition: transform 0.4s cubic-bezier(0.5, 0.15, 0.25, 1.0),
+              box-shadow 0.2s ease;
+}
+
+/* Move button along with content when open (optional, nice feel) */
+body.nav-open .openNav {
+  transform: translateX(220px);
+}
+
+/* Hamburger icon (3 lines) */
+.openNav .icon {
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.openNav .icon::before,
+.openNav .icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: transform 0.4s ease, top 0.4s ease;
+}
+
+.openNav .icon::before {
+  top: -7px;
+}
+
+.openNav .icon::after {
+  top: 7px;
+}
+
+/* Turn hamburger into an "X" when open */
+body.nav-open .openNav .icon {
+  background-color: transparent;
+}
+
+body.nav-open .openNav .icon::before,
+body.nav-open .openNav .icon::after {
+  top: 0;
+}
+
+body.nav-open .openNav .icon::before {
+  transform: rotate(-45deg);
+}
+
+body.nav-open .openNav .icon::after {
+  transform: rotate(45deg);
+}

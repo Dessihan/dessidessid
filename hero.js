@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  /* ================================
+     1. HERO TITLE LETTER ANIMATION
+     ================================ */
   const title = document.getElementById("hero-title");
   const text = title.textContent;
   title.textContent = "";
@@ -13,4 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
       title.appendChild(span);
     }
   }
+
+  /* ================================
+     2. NAV MENU TOGGLE (MATCHES .openNav + nav-open)
+     ================================ */
+  const toggle = document.querySelector(".openNav");
+
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      document.body.classList.toggle("nav-open");
+    });
+  }
+
 });
