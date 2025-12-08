@@ -1,0 +1,37 @@
+/* ============================
+   Fonts
+   ============================ */
+.hachi-maru-pop-regular {
+  font-family: "Hachi Maru Pop", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+/* ============================
+   Hero
+   ============================ */
+header {
+  min-height: 100vh;              /* full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;        /* center content vertically */
+  align-items: center;            /* center horizontally */
+  padding: 2rem 1rem;
+  text-align: center;
+}
+/* ============================
+   Words
+   ============================ */
+h1 {
+  font-family: "Hachi Maru Pop", cursive;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 1.2;
+  padding
+}
+  body {
+  background-color: #81D8D0 ; /* Tiffany Blue */
+  margin: 0;
+  padding: 0;
+  color: #333; /* keep text readable */
+  font-family: sans-serif;
+}
