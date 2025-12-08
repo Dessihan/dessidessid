@@ -1,6 +1,12 @@
-$(".openNav").click(function() {
-  $("body").toggleClass("navOpen");
-  $("nav").toggleClass("open");
-  $(".wrapper").toggleClass("open");
-  $(this).toggleClass("open");
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.querySelector(".openNav");
+
+  if (!toggle) {
+    console.warn("No .openNav button found");
+    return;
+  }
+
+  toggle.addEventListener("click", function () {
+    document.body.classList.toggle("nav-open");
+  });
 });
