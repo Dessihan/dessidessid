@@ -20,15 +20,13 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: stretch;   /* was center – stretch so content can use full width */
+  align-items: stretch; 
   text-align: center;
 }
 
 /* ============================
    fun h1 styling
    ============================ */
-/* Base H1 style (desktop / laptop) */
-/* Base H1 style (desktop / laptop) */
 #hero-title {
   font-family: "Hachi Maru Pop", cursive;
   font-weight: 400;
@@ -42,20 +40,20 @@ header {
   overflow-wrap: normal;
 }
 
-/* Desktop / big screens: all words on one line */
+
 #hero-title .hero-word {
   display: inline-block;
-  margin: 0 0.25em;   /* small space between words on desktop */
+  margin: 0 0.25em;   
 }
 
-/* Small screens: stack "Mandarin / Chinese / Pinyin" */
+
 @media (max-width: 768px) {
   #hero-title {
-    font-size: 4rem;         /* keep 4rem like you wanted */
+    font-size: 4rem;         
   }
 
   #hero-title .hero-word {
-    display: block;          /* each word on its own line */
+    display: block;          
     margin: 0.1rem 0;
     word-break: keep-all;
   }
@@ -96,15 +94,14 @@ header {
 
 .tagline {
   position: relative;
-  /* sizing based on your font-size, feels like a long word */
   width: 20em;
   height: 1.5em;
-  font-size: 2rem;          /* you can tweak this */
+  font-size: 2rem;          
   font-family: "Cherry Bomb One", system-ui;
-  margin: 3rem auto 0;      /* center under title */
+  margin: 3rem auto 0;      
 }
 
-/* Base style for the three stacked lines */
+/* three stacked lines */
 .tagline div {
   position: absolute;
   left: 0;
@@ -113,7 +110,7 @@ header {
   text-align: center;
 }
 
-/* Top half text that slides up */
+/* Top half slides up */
 .tagline .upper {
   top: 0;
   height: 40%;
@@ -123,7 +120,7 @@ header {
   animation: moveUp 1.5s ease-in-out 1;
   background-color: #81D8D0;
 }
-/* Inside message (shows on hover) */
+/* Inside */
 .tagline .inside {
   position: absolute;
   top: 30%;
@@ -136,7 +133,7 @@ header {
   opacity: 0; 
   animation: insideFlash 1.5s ease-in-out 1 forwards;
 }
-/* Bottom text that slides down */
+/* Bottom slides down */
 .tagline .lower {
   bottom: 0;
   height: 100%;
@@ -150,7 +147,6 @@ header {
 }
 
 
-/* Keep the upper/lower animation keyframes (letter motion) */
 @keyframes moveUp {
   0%, 100% {
     top: 0;
@@ -183,7 +179,6 @@ header {
 }
 
 
-/* Optional: smaller tweaks on very small screens */
 @media (max-width: 424px) {
   .tagline {
     font-size: 2rem;
@@ -207,12 +202,10 @@ header {
 /* ============================
   fun nav
    ============================ */
-/* Timing variable reused from example */
 :root {
   --bubbleTiming: cubic-bezier(0.5, 0.15, 0.25, 1.75);
 }
 
-/* Position the nav bubble under your hero text */
 .nav-bubble {
   margin-top: 6rem;
   display: flex;
@@ -220,7 +213,6 @@ header {
 }
 
 
-/* Style the list inside the bubble */
 .nav-bubble ul {
   list-style: none;
   margin: 0;
@@ -232,10 +224,9 @@ header {
 .nav-bubble a {
   text-decoration: none;
   font-weight: 600;
-  color: #0A3D62; /* your dark blue */
+  color: #0A3D62; 
 }
 
-/* The bubble itself (adapted from the original .bubble input) */
 .nav-bubble .bubble,
 .nav-bubble .bubble::before,
 .nav-bubble .bubble::after {
@@ -249,7 +240,7 @@ header {
 }
 
 .nav-bubble .bubble {
-  /* background + shiny bubble effect */
+  /* bubble effect */
   background-image:
     radial-gradient(8% 8% at 22% 28%, hsl(0,0%,100%) 45%, hsla(0,0%,100%,0) 50%),
     radial-gradient(8% 8% at 23% 27%, hsl(0,0%,100%) 45%, hsla(0,0%,100%,0) 50%),
@@ -269,24 +260,21 @@ header {
   cursor: pointer;
   position: relative;
 
-  /* FIXED CIRCLE SIZE */
   width: 8rem;
   height: 8rem;
-  padding: 0; /* important: let width/height control size */
+  padding: 0; 
 
-  /* center the text inside the circle */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 
   transform-style: preserve-3d;
-  transition-property: box-shadow, transform; /* no width/height */
+  transition-property: box-shadow, transform; 
   will-change: transform;
 }
 
 
-/* Inner glow ring behind the bubble */
 .nav-bubble .bubble::before,
 .nav-bubble .bubble::after {
   content: "";
@@ -322,7 +310,7 @@ header {
   z-index: -2;
 }
 
-/* Float animation (like original label float) */
+/* Float animation */
 .nav-bubble .bubble {
   animation: float 4s ease-in-out infinite;
 }
@@ -332,14 +320,14 @@ header {
   transform: scale(1.1);
 }
 
-/* Squish into an oval when actively pressed/held */
+/* Squish when pressed/held */
 .nav-bubble .bubble:active {
-  width: 8rem;   /* squish like example */
+  width: 8rem;   
   height: 4rem;
   margin-top: 2rem;
 }
 
-/* Adjust pseudo-elements when active */
+
 .nav-bubble .bubble:hover::before {
   filter: drop-shadow(0.75em 0.75em 4px hsla(0,0%,0%,0.2));
 }
@@ -348,7 +336,6 @@ header {
   transform: translate3d(0.15em, 0.15em, -1px);
 }
 
-/* Float animation, same as example */
 @keyframes float {
   from, to {
     transform: translate(0, 3%);
@@ -369,12 +356,10 @@ header {
    nav (off-screen drawer)
    ============================ */
 
-/* When nav is open, prevent body scrolling */
 body.nav-open {
   overflow: hidden;
 }
 
-/* Slide the main content slightly when nav opens */
 .page-wrapper {
   transition: transform 0.4s cubic-bezier(0.5, 0.15, 0.25, 1.0);
 }
@@ -385,7 +370,7 @@ body.nav-open .page-wrapper {
 
 /* Drawer nav */
 .site-nav {
-  background-color: #5ABDB3;       /* your dark blue */
+  background-color: #5ABDB3;       
   color: #ffffff;
   width: 220px;
   height: 100vh;
@@ -395,7 +380,7 @@ body.nav-open .page-wrapper {
   padding: 5rem 1.5rem 2rem;
   box-sizing: border-box;
 
-  transform: translateX(-240px);   /* hidden off screen */
+  transform: translateX(-240px);   
   transition: transform 0.4s cubic-bezier(0.5, 0.15, 0.25, 1.0);
   z-index: 20;
 }
@@ -427,7 +412,7 @@ body.nav-open .site-nav {
 
 .site-nav a:hover,
 .site-nav a:focus {
-  color: #333;  /* use your Tiffany blue as hover accent */
+  color: #333;  
 }
 
 /* Hamburger button */
@@ -442,7 +427,7 @@ body.nav-open .site-nav {
   padding: 0;
   margin: 0;
 
-  background-color: #5ABDB3;     /* dark blue bubble */
+  background-color: #5ABDB3;     
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 
   display: flex;
@@ -455,7 +440,6 @@ body.nav-open .site-nav {
               box-shadow 0.2s ease;
 }
 
-/* Move button along with content when open (optional, nice feel) */
 body.nav-open .openNav {
   transform: translateX(220px);
 }
