@@ -44,7 +44,8 @@ header {
 /* Phones: stack each word on its own line */
 @media (max-width: 480px) {
   #hero-title {
-    font-size: 2.2rem; /* tweak if needed */
+    font-size: 4rem; /* tweak if needed */
+    margin-left: 2em;
   }
 
   #hero-title .hero-word {
