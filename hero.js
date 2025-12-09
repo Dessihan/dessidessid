@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ================================
-     2. NAV MENU TOGGLE (MATCHES .openNav + nav-open)
+     2. NAV MENU TOGGLE 
      ================================ */
   const toggle = document.querySelector(".openNav");
 
