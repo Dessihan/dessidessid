@@ -16,42 +16,58 @@
    Hero style
    ============================ */
 header {
-  min-height: 100vh;              
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;        
-  align-items: center;            
-
+  justify-content: center;
+  align-items: stretch;   /* was center – stretch so content can use full width */
   text-align: center;
+}
+
+.page-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;   /* top / sides / extra bottom so bubbles aren't glued to bottom */
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 3rem 1.5rem 5rem;  /* slightly tighter sides on phones */
+  }
 }
 
 /* ============================
    fun h1 styling
    ============================ */
+/* Base H1 style (desktop / laptop) */
 #hero-title {
   font-family: "Hachi Maru Pop", cursive;
   font-weight: 400;
-  font-size: 4rem;        
+  font-size: 3rem;
   line-height: 1.2;
   color: #333;
   text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  margin: 0;
 }
 
 #hero-title .hero-word {
   display: inline-block;
+  margin: 0 0.25em;   /* small space between words on desktop */
 }
 
-/* Phones: stack each word on its own line */
-@media (max-width: 480px) {
+/* Tablets & phones: stack "Mandarin / Chinese / Pinyin" */
+@media (max-width: 768px) {
   #hero-title {
-    font-size: 4rem; /* tweak if needed */
-    margin-left: 2em;
+    font-size: 2.4rem;   /* smaller so it feels right on mobile */
   }
 
   #hero-title .hero-word {
-    display: block;       /* each on its own line */
+    display: block;      /* each on its own line */
+    margin: 0.1rem 0;    /* tiny vertical gap between lines */
   }
 }
+
 
 #hero-title .char {
   display: inline-block;
@@ -91,7 +107,7 @@ header {
   height: 1.5em;
   font-size: 2rem;          /* you can tweak this */
   font-family: "Cherry Bomb One", system-ui;
-  margin: 1.5rem auto 0;      /* center under title */
+  margin: 3rem auto 0;      /* center under title */
 }
 
 /* Base style for the three stacked lines */
