@@ -28,6 +28,7 @@ header {
    fun h1 styling
    ============================ */
 /* Base H1 style (desktop / laptop) */
+/* Base H1 style (desktop / laptop) */
 #hero-title {
   font-family: "Hachi Maru Pop", cursive;
   font-weight: 400;
@@ -36,24 +37,30 @@ header {
   color: #333;
   text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   margin: 0;
+  padding: 2rem 2rem;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
+/* Desktop / big screens: all words on one line */
 #hero-title .hero-word {
   display: inline-block;
   margin: 0 0.25em;   /* small space between words on desktop */
 }
 
-/* Tablets & phones: stack "Mandarin / Chinese / Pinyin" */
+/* Small screens: stack "Mandarin / Chinese / Pinyin" */
 @media (max-width: 768px) {
   #hero-title {
-    font-size: 2.4rem;   /* smaller so it feels right on mobile */
+    font-size: 4rem;         /* keep 4rem like you wanted */
   }
 
   #hero-title .hero-word {
-    display: block;      /* each on its own line */
-    margin: 0.1rem 0;    /* tiny vertical gap between lines */
+    display: block;          /* each word on its own line */
+    margin: 0.1rem 0;
+    word-break: keep-all;
   }
 }
+
 
 
 #hero-title .char {
