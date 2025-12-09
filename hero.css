@@ -28,14 +28,46 @@ header {
 /* ============================
    fun h1 styling
    ============================ */
+/* ===== HERO TITLE – SINGLE SOURCE OF TRUTH ===== */
 #hero-title {
   font-family: "Hachi Maru Pop", cursive;
   font-weight: 400;
-  font-size: 4rem;        
   line-height: 1.2;
   color: #333;
   text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  margin: 0;
+
+  /* one-line default */
+  white-space: nowrap;
+  overflow: hidden;
+
+  /* responsive size that shrinks with viewport */
+  font-size: 3.8rem;     /* big desktop */
 }
+
+/* tablets / small laptops */
+@media (max-width: 1024px) {
+  #hero-title {
+    font-size: 3.2rem;
+  }
+}
+
+/* phones */
+@media (max-width: 768px) {
+  #hero-title {
+    font-size: 7vw;      /* scales with screen width */
+    white-space: nowrap;
+  }
+}
+
+/* extra small phones */
+@media (max-width: 400px) {
+  #hero-title {
+    font-size: 6.2vw;
+    white-space: nowrap;
+  }
+}
+
 
 #hero-title .char {
   display: inline-block;
@@ -480,3 +512,16 @@ body.nav-open .openNav .icon::after {
   transform: rotate(45deg);
 }
 
+/* ===== MOBILE LAYOUT SAFETY ===== */
+@media (max-width: 480px) {
+  .page-wrapper {
+    max-width: 100%;
+    padding: 3rem 1rem 5rem;  /* little side padding, good bottom space */
+    box-sizing: border-box;
+  }
+
+  /* also: don't shove content sideways when nav opens on small screens */
+  body.nav-open .page-wrapper {
+    transform: none;
+  }
+}
